@@ -1,3 +1,5 @@
+#include "category.h"
+
 struct expense{
 	char expense_name[50];
 	
@@ -10,3 +12,4 @@ struct expense{
 	double expense_amount;
 
 };
+
