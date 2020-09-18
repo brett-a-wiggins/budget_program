@@ -81,3 +81,55 @@ struct category_list *initialise_list(struct category_list *cat_list)
 	}
 	return cat_list;
 }
+
+struct category_list *create_new_list(struct category_list *cat_list)
+{
+	if(cat_list == NULL)
+	{
+		cat_list = (struct category_list *)malloc(sizeof(struct category_list));
+		return cat_list;
+	}
+	else
+	{
+		free(cat_list);
+		cat_list = (struct category_list *)malloc(sizeof(struct category_list));
+		return cat_list;
+	}
+}
+
+struct category_list *add_to_category_list(struct category_list *cat_list)
+{
+	if(cat_list == NULL)
+	{
+		cat_list = initialise_list(cat_list);
+		cat_list->cat = create_new_category(cat_list->cat);
+		return cat_list;
+	}
+	else
+	{
+		current_cat_node = first_cat_node;
+		while(current_cat_node)
+		{
+			current_cat_node = current_cat_node->next_node;
+		}
+		cat_list->cat = create_new_category(current_cat_node->cat);
+		return cat_list;
+	}
+}
+
+int print_category_list(struct category_list *cat_list)
+{
+	if(cat_list == NULL)
+	{
+		printf("Error. List is empty!\n");
+		return -1;
+	}
+	else
+	{
+		while(cat_list)
+		{
+			printf("Category: %s\n", cat_list->cat.cat_name);
+			cat_list = cat_list->next_node;
+		}
+	}
+}

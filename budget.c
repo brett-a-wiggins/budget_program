@@ -11,10 +11,6 @@ int main(void)
 	new_cat_list = initialise_list(new_cat_list);
 
 	printf("Printing contents of list...\n");
-	while(new_cat_list->next_node)
-	{
-		printf("%s\n", new_cat_list->cat.cat_name);
-		new_cat_list = new_cat_list->next_node;
-	}
+	print_category_list(new_cat_list);
 	return EXIT_SUCCESS;
 }
