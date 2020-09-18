@@ -13,3 +13,5 @@ struct expense{
 
 };
 
+struct expense * new_expense(struct expense *);
+void print_expense(struct expense *);

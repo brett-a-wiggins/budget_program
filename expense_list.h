@@ -6,9 +6,9 @@ struct expense_list{
 	struct expense_list *next_node;
 };
 
-struct expense_list *first_node;
-struct expense_list *current_node;
-struct expense_list *new_node;
+struct expense_list *first_exp_node;
+struct expense_list *current_exp_node;
+struct expense_list *new_exp_node;
 
 create_new_expense_list();
 destroy_expense_list();
