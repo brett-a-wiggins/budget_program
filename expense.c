@@ -23,6 +23,7 @@ struct expense * new_expense(struct expense *exp)
 	get_string_input(input_expense_name);
 	strcpy(exp->expense_name, input_expense_name);
 	printf("Enter expense category: ");
+	new_expense_category->cat_name = (char *)malloc(sizeof(char)*50);
 	get_string_input(new_expense_category->cat_name);
 	convert_to_uppercase(new_expense_category->cat_name);
 	if(find_in_category_list(new_expense_category))
@@ -32,6 +33,7 @@ struct expense * new_expense(struct expense *exp)
 		printf("Enter expense amount: ");
 		expense_amount = get_double_input();
 		strcpy(exp->expense_description, expense_description);
+		exp->expense_category = new_expense_category;
 		exp->expense_amount = expense_amount;
 	}
 	else

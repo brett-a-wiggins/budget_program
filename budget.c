@@ -29,7 +29,7 @@ int main(void)
 	
 	struct expense *expense = (struct expense *)malloc(sizeof(struct expense));
 	
-	new_expense(expense);
+	expense = new_expense(expense);
 
 	print_expense(expense);
 	

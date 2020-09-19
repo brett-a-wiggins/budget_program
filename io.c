@@ -9,6 +9,7 @@ void clear_input(void)
 
 char * get_string_input(char *input_ptr)
 {
+	
 	input_ptr = fgets(input_ptr, MAXCHAR + EXTRACHAR, stdin);
 	
 	strtok(input_ptr,"\n");
