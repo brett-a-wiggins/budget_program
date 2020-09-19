@@ -10,9 +10,10 @@ struct expense_list *first_exp_node;
 struct expense_list *current_exp_node;
 struct expense_list *new_exp_node;
 
-create_new_expense_list();
-destroy_expense_list();
-add_to_expense_list();
+struct expense_list *create_new_expense_list(struct expense_list *);
+struct expense_list *add_to_expense_list(struct expense *);
+
 delete_from_expense_list();
 find_in_expense_list();
 print_expense_list();
+destroy_expense_list();
