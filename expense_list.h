@@ -1,3 +1,5 @@
+#ifndef EXPENSE_LIST_H
+#define EXPENSE_LIST_H
 #include "expense.h"
 
 struct expense_list{
@@ -17,3 +19,5 @@ delete_from_expense_list();
 find_in_expense_list();
 print_expense_list();
 destroy_expense_list();
+
+#endif

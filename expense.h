@@ -1,5 +1,5 @@
-struct expense * new_expense(struct expense *);
-void print_expense(struct expense *);
+#ifndef EXPENSE_H
+#define EXPENSE_H
 
 struct expense{
 	char expense_name[50];
@@ -14,5 +14,11 @@ struct expense{
 
 };
 
+struct expense *new_expense(struct expense *);
+void print_expense(struct expense *);
 
 
+
+
+
+#endif

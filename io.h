@@ -1,3 +1,6 @@
+#ifndef IO_H
+#define IO_H
+
 #define MAXCHAR 100
 #define EXTRACHAR 2
 
@@ -7,3 +10,4 @@ double get_double_input(void);
 void clear_input(void);
 char *convert_to_uppercase(char *);
 
+#endif

@@ -1,3 +1,6 @@
+#ifndef CATEGORY_LIST_H
+#define CATEGORY_LIST_H
+
 #include "category.h"
 #include <stdlib.h>
 
@@ -18,3 +21,5 @@ int delete_from_category_list(struct category *);
 int find_in_category_list(struct category *);
 int edit_category(struct category *);
 int print_category_list(struct category_list *);
+
+#endif

@@ -1,2 +1,6 @@
+#ifndef BUDGET_H
+#define BUDGET_H
 
-create_a_new_budget();
+void create_a_new_budget(void);
+
+#endif

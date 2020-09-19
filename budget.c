@@ -2,6 +2,9 @@
 #include <stdlib.h>
 #include "expense.h"
 #include "bank_account.h"
+#include "expense_list.h"
+#include "category_list.h"
+#include "budget.h"
 
 int main(void)
 {	
