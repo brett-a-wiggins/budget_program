@@ -5,7 +5,7 @@
 
 int main(void)
 {	
-	struct category_list *new_cat_list;
+	struct category_list *new_cat_list = NULL;
 
 	printf("Testing category list initialisation...\n");
 	new_cat_list = initialise_list(new_cat_list);

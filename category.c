@@ -14,6 +14,8 @@ void print_category(struct category *cat)
 	}
 }
 
+
+
 struct category *create_new_category(struct category *cat)
 {	
 	cat = (struct category *)malloc(sizeof(struct category));

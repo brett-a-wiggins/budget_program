@@ -3,6 +3,8 @@
 #include <stdio.h>
 #include <string.h>
 
+#define RECORDS 52
+
 char *category_array[] = {
 	"Apple Music",
 	"APPVA Loan",
@@ -61,29 +63,45 @@ char *category_array[] = {
 struct category_list *initialise_list(struct category_list *cat_list)
 {
 	int index = 0;
-	cat_list = (struct category_list *)malloc(sizeof(struct category_list));
+	new_cat_node = (struct category_list *)malloc(sizeof(struct category_list));
 	
-	if(cat_list == NULL)
+
+	new_cat_node->cat = (struct category *)malloc(sizeof(struct category));
+	
+	new_cat_node->cat->cat_name = (char *)malloc(sizeof(char) * 50);
+
+	if(new_cat_node == NULL)
 	{
 		printf("Error allocating memory\n");
 		return NULL;
 	}
-	first_cat_node = cat_list;
-	current_cat_node = first_cat_node;
+	
+	first_cat_node = current_cat_node = new_cat_node;
 
-	while(category_array[index])
+	while(index < RECORDS)
 	{
-		strcpy(current_cat_node->cat.cat_name,category_array[index]);
+		strcpy(new_cat_node->cat->cat_name,category_array[index++]);
 		new_cat_node = (struct category_list *)malloc(sizeof(struct category_list));
+		new_cat_node->cat = (struct category *)malloc(sizeof(struct category));
+		new_cat_node->cat->cat_name = (char *)malloc(sizeof(char) * 50);
 		current_cat_node->next_node = new_cat_node;
 		current_cat_node = new_cat_node;
-		index++;
+		
 	}
+
+	cat_list = current_cat_node;
+	
+
+
+	
+		
+
 	return cat_list;
 }
 
 struct category_list *create_new_list(struct category_list *cat_list)
 {
+	
 	if(cat_list == NULL)
 	{
 		cat_list = (struct category_list *)malloc(sizeof(struct category_list));
@@ -99,6 +117,7 @@ struct category_list *create_new_list(struct category_list *cat_list)
 
 struct category_list *add_to_category_list(struct category_list *cat_list)
 {
+
 	if(cat_list == NULL)
 	{
 		cat_list = initialise_list(cat_list);
@@ -118,7 +137,8 @@ struct category_list *add_to_category_list(struct category_list *cat_list)
 }
 
 int print_category_list(struct category_list *cat_list)
-{
+{	
+	cat_list = first_cat_node;
 	if(cat_list == NULL)
 	{
 		printf("Error. List is empty!\n");
@@ -126,10 +146,11 @@ int print_category_list(struct category_list *cat_list)
 	}
 	else
 	{
-		while(cat_list)
+		while(cat_list->next_node)
 		{
-			printf("Category: %s\n", cat_list->cat.cat_name);
+			printf("Category: %s\n", cat_list->cat->cat_name);
 			cat_list = cat_list->next_node;
 		}
 	}
+	return 1;
 }

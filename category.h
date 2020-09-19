@@ -1,5 +1,5 @@
 struct category{
-	char cat_name[50];
+	char *cat_name;
 };
 
 void print_category(struct category *);

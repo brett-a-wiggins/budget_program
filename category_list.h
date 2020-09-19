@@ -1,7 +1,9 @@
 #include "category.h"
+#include <stdlib.h>
+
 
 struct category_list{
-	struct category cat;
+	struct category *cat;
 	struct category_list *next_node;
 };
 
