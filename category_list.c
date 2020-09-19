@@ -60,9 +60,74 @@ char *category_array[] = {
 	"Water Rates"
 };
 
+int edit_category(struct category *cat_to_edit)
+{		
+
+}
+
+int find_in_category_list(struct category *cat_to_find)
+{	
+	char *key = (char *)malloc(sizeof(char) * 50);
+	strcpy(key, cat_to_find->cat_name);
+	convert_to_uppercase(key);
+
+	current_cat_node = first_cat_node;
+	while(current_cat_node->next_node)
+	{
+		if(!strcmp(current_cat_node->cat->cat_name,key))
+		{
+			printf("Found category: %s in list\n",key);
+			return 1;
+		}
+		current_cat_node = current_cat_node->next_node;
+
+	}
+	printf("Did not find: %s in list.\n",key);
+	return 0;
+}
+
+int delete_from_category_list(struct category *cat_to_delete)
+{
+	char *key = NULL;
+	struct category_list *previous_node = (struct category_list *)malloc(sizeof(struct category_list));
+	key = (char *)malloc(sizeof(char)*50);
+	if(cat_to_delete == NULL)
+	{
+		printf("Error! category is NULL!\n");
+		return -1;
+	}
+	else
+	{
+		strcpy(key,cat_to_delete->cat_name);
+		convert_to_uppercase(key);
+		current_cat_node = first_cat_node;
+		while(current_cat_node)
+		{
+			if(!strcmp(key,current_cat_node->cat->cat_name))
+			{
+				if(current_cat_node == first_cat_node)
+					first_cat_node = current_cat_node->next_node;
+				else
+					previous_node->next_node = current_cat_node->next_node;
+				free(current_cat_node);
+				printf("Category: %s deleted\n",key);
+				return 1;
+				
+			}else
+			{
+				previous_node = current_cat_node;
+				current_cat_node = current_cat_node->next_node;
+			}
+			
+		}
+		
+	}
+}
+
 struct category_list *initialise_list(struct category_list *cat_list)
 {
 	int index = 0;
+	char *new_name = NULL;
 	new_cat_node = (struct category_list *)malloc(sizeof(struct category_list));
 	
 
@@ -80,7 +145,10 @@ struct category_list *initialise_list(struct category_list *cat_list)
 
 	while(index < RECORDS)
 	{
-		strcpy(new_cat_node->cat->cat_name,category_array[index++]);
+		new_name = (char *)malloc(sizeof(char) * 50);
+		strcpy(new_name,category_array[index++]);
+		convert_to_uppercase(new_name);
+		strcpy(new_cat_node->cat->cat_name,new_name);
 		new_cat_node = (struct category_list *)malloc(sizeof(struct category_list));
 		new_cat_node->cat = (struct category *)malloc(sizeof(struct category));
 		new_cat_node->cat->cat_name = (char *)malloc(sizeof(char) * 50);
