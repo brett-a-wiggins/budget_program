@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include "io.h"
 #include <string.h>
+#include "category.h"
 
 
 struct expense * new_expense(struct expense *exp)
@@ -40,6 +41,7 @@ struct expense * new_expense(struct expense *exp)
 	}
 	return exp;
 }
+
 void print_expense(struct expense *exp)
 {
 	printf("Expense name: %s\n",exp->expense_name);

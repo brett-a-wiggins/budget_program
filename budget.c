@@ -5,6 +5,7 @@
 #include "expense_list.h"
 #include "category_list.h"
 #include "budget.h"
+#include "category.h"
 
 int main(void)
 {	
@@ -26,11 +27,11 @@ int main(void)
 	printf("\n\n");
 
 	
-	struct expense *new_expense = (struct expense *)malloc(sizeof(struct expense));
+	struct expense *expense = (struct expense *)malloc(sizeof(struct expense));
 	
-	new_expense(new_expense);
+	new_expense(expense);
 
-	print_expense(new_expense);
+	print_expense(expense);
 	
 
 	
