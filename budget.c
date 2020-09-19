@@ -9,6 +9,7 @@
 
 int main(void)
 {	
+	int counter = 0;
 
 	struct bank_account *my_savings_account = (struct bank_account *)malloc(sizeof(struct bank_account));
 
@@ -27,13 +28,33 @@ int main(void)
 	printf("\n\n");
 
 	
-	struct expense *expense = (struct expense *)malloc(sizeof(struct expense));
 	
-	expense = new_expense(expense);
-
-	print_expense(expense);
 	
 
+	
+
+	struct expense_list *new_exp_node = (struct expense_list *)malloc(sizeof(struct expense_list));
+
+	first_exp_node = current_exp_node = new_exp_node;
+
+	new_exp_node = create_new_expense_list(new_exp_node);
+	
+
+	
+
+	while(counter < 2)
+	{
+
+		struct expense *expense = (struct expense *)malloc(sizeof(struct expense));
+		expense = new_expense(expense);
+		new_exp_node = add_to_expense_list(expense);
+		new_exp_node->next_node = (struct expense_list *)malloc(sizeof(struct expense_list));
+		new_exp_node = new_exp_node->next_node;
+		counter++;
+	}
+
+	printf("\n\n");
+	print_expense_list(first_exp_node);
 	
 	return EXIT_SUCCESS;
 }

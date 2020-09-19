@@ -46,7 +46,7 @@ struct expense * new_expense(struct expense *exp)
 
 void print_expense(struct expense *exp)
 {
-	printf("Expense name: %s\n",exp->expense_name);
+	printf("\n\nExpense name: %s\n",exp->expense_name);
 	printf("Expense date: (to be implemented..)\n");
 	printf("Expense category %s\n", exp->expense_category->cat_name);
 	printf("Expense description: %s\n", exp->expense_description);
