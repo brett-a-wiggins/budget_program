@@ -62,6 +62,17 @@ char *category_array[] = {
 
 int edit_category(struct category *cat_to_edit)
 {		
+	if(cat_to_edit == NULL)
+	{
+		printf("Errror, category = NULL");
+		return -1;
+	}
+	char *new_name = (char *)malloc(sizeof(char) * 50);
+	printf("Enter new category name: ");
+	get_string_input(new_name);
+	convert_to_uppercase(new_name);
+	strcpy(cat_to_edit->cat_name,new_name);
+	return 0;
 
 }
 
