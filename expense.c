@@ -4,7 +4,7 @@
 #include "io.h"
 #include <string.h>
 #include "category.h"
-
+#include "category_list.h"
 
 struct expense * new_expense(struct expense *exp)
 {
@@ -50,5 +50,5 @@ void print_expense(struct expense *exp)
 	printf("Expense date: (to be implemented..)\n");
 	printf("Expense category %s\n", exp->expense_category->cat_name);
 	printf("Expense description: %s\n", exp->expense_description);
-	printf("Expense amount: %lf\n", exp->expense_amount);
+	printf("Expense amount: %.2lf\n", exp->expense_amount);
 }

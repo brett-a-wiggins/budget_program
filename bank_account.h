@@ -9,4 +9,6 @@ struct bank_account{
 
 };
 
+struct bank_account *create_new_account(struct bank_account *);
+
 #endif
