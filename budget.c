@@ -21,6 +21,7 @@ int main(void)
 			case 1:
 				new_budget = (struct budget *)malloc(sizeof(struct budget));
 				new_budget = create_a_new_budget(new_budget);
+				break;
 			case 2:
 				new_budget = load_budget_from_file(new_budget);
 				break;
