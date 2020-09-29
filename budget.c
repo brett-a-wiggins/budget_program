@@ -35,7 +35,7 @@ int main(void)
 				search_budget(new_budget);
 				break;
 			case 6:
-				save_budget_to_disk(new_budget);
+				save_budget_to_disk(new_budget, NULL);
 				break;
 			case 7:
 				printf("Ending application\n");
@@ -52,7 +52,7 @@ int main(void)
 	return EXIT_SUCCESS;
 }
 
-void save_budget_to_disk(struct budget *new_budget)
+void save_budget_to_disk(struct budget *new_budget, char * budget_name)
 {
 
 }
@@ -74,8 +74,11 @@ void view_reports(struct budget *new_budget)
 
 struct budget *create_a_new_budget(struct budget *new_budget)
 {
-
-	return NULL;
+	char * budget_name = NULL;
+	printf("Enter a name for the budget: \n");
+	budget_name = get_string_input(budget_name);
+	save_budget_to_disk(new_budget, budget_name);
+	return new_budget;
 }
 
 void clean_up(struct budget *existing_budget)

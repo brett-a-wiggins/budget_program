@@ -12,6 +12,6 @@ void clean_up(struct budget *);
 void view_reports(struct budget *);
 void add_to_budget(struct budget *);
 void search_budget(struct budget *);
-void save_budget_to_disk(struct budget *);
+void save_budget_to_disk(struct budget *, char *);
 struct budget *load_budget_from_file(struct budget *);
 #endif
