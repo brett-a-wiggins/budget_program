@@ -77,6 +77,12 @@ struct budget *create_a_new_budget(struct budget *new_budget)
 	char * budget_name = NULL;
 	printf("Enter a name for the budget: \n");
 	budget_name = get_string_input(budget_name);
+	new_budget = (struct budget *)malloc(sizeof(struct budget));
+	new_budget->budget_bank_account = (struct bank_account *)malloc(sizeof(struct bank_account));
+	first_exp_node = (struct expense_list *)malloc(sizeof(struct expense_list));
+	new_budget->budget_entries = first_exp_node;
+	first_cat_node = (struct category_list *)malloc(sizeof(struct category_list));
+	new_budget->budget_categories = first_cat_node;
 	save_budget_to_disk(new_budget, budget_name);
 	return new_budget;
 }
